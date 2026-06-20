@@ -1,0 +1,80 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Superlinked
+providerId: superlinked
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Vectors
+- Embeddings
+- Vector Search
+- Retrieval
+- Recommendations
+- RAG
+- Plans
+description: >-
+  Superlinked's core is an open-source Apache-2.0 Python framework and a
+  self-hostable Superlinked Server, both free to use; you run them on your own
+  infrastructure and pay only for the compute and the external vector database
+  you provision. A managed Superlinked Cloud is offered separately in early
+  access through a sales-led demo, with no public, published price list. Plan
+  details below are not reconciled against a vendor pricing page because
+  Superlinked does not publish self-serve cloud pricing.
+notes: >-
+  Open-source framework and server are free (Apache-2.0). Superlinked Cloud is
+  sales-led / early access; pricing is not publicly listed. Verify current
+  offerings and any cloud pricing on reconciliation.
+sources:
+- https://www.superlinked.com
+- https://github.com/superlinked/superlinked
+plans:
+- id: superlinked-open-source
+  name: Open Source (Framework + Server)
+  type: free
+  description: >-
+    The Apache-2.0 Superlinked Python framework and self-hostable Superlinked
+    Server. Free to install and run; the user provisions and pays for their own
+    compute and external vector database (Redis, MongoDB, Qdrant, TopK, etc.).
+  entries:
+  - label: Framework and Server License
+    name: open_source
+    type: flat
+    metric: license
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0 (Apache-2.0; self-hosted compute and vector DB billed separately)
+    userMultiplied: false
+  elements:
+  - name: Superlinked Framework (Python)
+  - name: Superlinked Server (generated REST API)
+  - name: Ingestion API
+  - name: Query API
+  - name: Data Loader API
+- id: superlinked-cloud
+  name: Superlinked Cloud
+  type: enterprise
+  description: >-
+    Managed, production-scale hosting of Superlinked-powered apps. Early access,
+    sales-led; no public self-serve pricing is published.
+  entries:
+  - label: Managed Cloud
+    name: cloud
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales / early access
+    userMultiplied: false
+  elements:
+  - name: Managed Superlinked Server
+  - name: Production Scaling
+  - name: Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

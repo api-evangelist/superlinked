@@ -1,0 +1,64 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Superlinked
+providerId: superlinked
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Vectors
+- Embeddings
+- Vector Search
+- Retrieval
+- Recommendations
+- RAG
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Superlinked Server is self-hosted open-source software and does not
+  enforce vendor-imposed rate limits; throughput is bounded by the compute you
+  provision and the limits of the external vector database and embedding model
+  inference behind it. Any rate limiting in front of the generated REST API is
+  the operator's responsibility (gateway, reverse proxy, or custom middleware).
+  Superlinked Cloud may apply plan-specific limits, but none are publicly
+  documented. No specific limits are reconciled in this artifact.
+notes: >-
+  No published vendor rate limits for the self-hosted server; limits depend on
+  provisioned compute and the backing vector database. Verify any Superlinked
+  Cloud limits with sales on reconciliation.
+sources:
+- https://github.com/superlinked/superlinked
+- https://www.superlinked.com
+responseCodes:
+  throttled: 429
+limits:
+- name: Server Throughput
+  scope: deployment
+  metric: requests
+  limit: bounded by provisioned compute
+  notes: Self-hosted; no vendor-imposed RPM/TPM. Scale horizontally to raise throughput.
+- name: Vector Database Limits
+  scope: deployment
+  metric: operations
+  limit: see backing vector DB
+  notes: Effective limits inherited from Redis / MongoDB / Qdrant / TopK and your plan there.
+- name: Embedding Inference
+  scope: deployment
+  metric: embeddings
+  limit: bounded by inference capacity
+  notes: Throughput of embedding model inference (local or provider) constrains ingestion and query rates.
+- name: Superlinked Cloud
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Managed cloud is early access / sales-led; plan limits are not publicly documented.
+policies:
+- name: Operator-Enforced Limiting
+  description: Place rate limiting at a gateway or proxy in front of the self-hosted server; the server itself does not throttle.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After if a fronting proxy returns 429.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

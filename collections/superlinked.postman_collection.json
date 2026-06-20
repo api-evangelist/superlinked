@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "b1f3a2c4-1a11-4c01-9a01-1a0001000001",
+      "name": "Ingestion",
+      "description": {
+        "content": "Schema-generated ingestion endpoints exposed by the Superlinked Server.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1f3a2c4-1a11-4c01-9a01-1a0001000002",
+          "name": "Ingest records for a schema",
+          "request": {
+            "name": "Ingest records for a schema",
+            "description": {
+              "content": "Generated per schema. Accepts records matching the schema; the server computes embeddings and writes them to the connected vector database. Replace :schema with your schema id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ingest",
+                ":schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "schema",
+                  "value": "paragraph",
+                  "description": "Identifier of the Superlinked schema."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"doc-1\",\n  \"body\": \"Example text to embed.\",\n  \"rating\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b1f3a2c4-1a11-4c01-9a01-1a0002000001",
+      "name": "Query",
+      "description": {
+        "content": "Schema-generated query endpoints exposed by the Superlinked Server.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1f3a2c4-1a11-4c01-9a01-1a0002000002",
+          "name": "Run a registered query",
+          "request": {
+            "name": "Run a registered query",
+            "description": {
+              "content": "Generated per registered RestQuery. Body parameters are derived from the query definition. Replace :query_name with your registered query name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "search",
+                ":query_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "query_name",
+                  "value": "paragraph_query",
+                  "description": "Name of the registered RestQuery."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"natural_query\": \"comfortable hotel near the beach\",\n  \"limit\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b1f3a2c4-1a11-4c01-9a01-1a0003000001",
+      "name": "Data Loader",
+      "description": {
+        "content": "Endpoints to trigger and monitor configured batch data loaders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1f3a2c4-1a11-4c01-9a01-1a0003000002",
+          "name": "Trigger a configured data loader",
+          "request": {
+            "name": "Trigger a configured data loader",
+            "description": {
+              "content": "Starts a configured batch data loader to backfill vectors. Replace :name with the configured loader name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-loader",
+                ":name",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "name",
+                  "value": "review",
+                  "description": "Name of the configured data loader."
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1f3a2c4-1a11-4c01-9a01-1a0003000003",
+          "name": "Get data loader status",
+          "request": {
+            "name": "Get data loader status",
+            "description": {
+              "content": "Reports the progress and state of a configured data loader. Replace :name with the configured loader name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-loader",
+                ":name",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "name",
+                  "value": "review",
+                  "description": "Name of the configured data loader."
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b1f3a2c4-1a11-4c01-9a01-1a0000000000",
+    "name": "Superlinked Server API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API auto-generated by the Superlinked Server from a Superlinked app's schema, index, and query definitions. Paths and bodies shown are the templated pattern; concrete endpoints depend on your app's schemas and registered queries.\n\nContact: Superlinked\n URL: https://www.superlinked.com",
+      "type": "text/plain"
+    }
+  }
+}

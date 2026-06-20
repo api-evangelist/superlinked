@@ -1,0 +1,105 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Superlinked
+providerId: superlinked
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Vectors
+- Embeddings
+- Vector Search
+- Retrieval
+- Recommendations
+- RAG
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of running Superlinked. The framework and the self-hosted
+  Superlinked Server are Apache-2.0 and carry no license fee; cost is driven by
+  the compute you provision to run the server and embedding inference, plus the
+  external vector database (Redis, MongoDB, Qdrant, TopK) you connect. Spend is
+  therefore infrastructure-based rather than per-API-call. Superlinked Cloud is
+  a separate managed offering (early access, sales-led) whose billing is not
+  publicly documented.
+notes: >-
+  Self-hosted spend is dominated by compute, embedding inference, and the
+  backing vector database - none billed by Superlinked. Verify any Superlinked
+  Cloud billing model with the vendor on reconciliation.
+sources:
+- https://www.superlinked.com
+- https://github.com/superlinked/superlinked
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Superlinked
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Self-Hosted / Infrastructure
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Superlinked Server
+  ServiceCategory: AI and Machine Learning
+  ProviderName: Superlinked
+  PublisherName: Superlinked
+  InvoiceIssuerName: Superlinked
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Self-Hosted
+meters:
+- name: server_compute_hours
+  description: Compute hours to run the self-hosted Superlinked Server (CPU/GPU, containers, or Kubernetes), billed by your infrastructure provider, not Superlinked.
+  unit: hours
+  aggregation: sum
+  dimensions:
+  - deployment
+  - environment
+- name: embedding_inference
+  description: Embedding model inference cost - local GPU/CPU compute or an external embedding provider - consumed during ingestion and query.
+  unit: embeddings
+  aggregation: sum
+  dimensions:
+  - deployment
+  - model
+- name: vector_db_storage
+  description: Storage and operations on the connected external vector database (Redis, MongoDB, Qdrant, TopK), billed by that database's provider.
+  unit: gb_month
+  aggregation: sum
+  dimensions:
+  - deployment
+  - vector_db
+- name: vector_db_operations
+  description: Read/write/query operations against the backing vector database.
+  unit: operations
+  aggregation: sum
+  dimensions:
+  - deployment
+  - vector_db
+- name: cloud_subscription
+  description: Superlinked Cloud managed subscription, where applicable; billing model not publicly documented.
+  unit: contract
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track compute, embedding inference, and vector-DB spend across providers; Superlinked itself emits no usage bill for the open-source server.
+- name: Allocation
+  description: Tag server deployments and vector-DB clusters per workload/team; map infrastructure cost back to internal cost centers.
+- name: Optimization
+  description: Right-size server compute, batch ingestion via data loaders, choose efficient embedding models, and pick a vector DB and tier that fit the workload.
+- name: Accountability
+  description: Assign owners per deployment; review compute and vector-DB spend monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

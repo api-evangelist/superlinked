@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Superlinked Server API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "x-api-key",
+        "value": "{{apiKey}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingestion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest records for a schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/ingest/:schema",
+            "params": [
+              {
+                "name": "schema",
+                "value": "paragraph",
+                "type": "path",
+                "description": "Identifier of the Superlinked schema whose ingest endpoint is being called."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{\n  \"id\": \"doc-1\",\n  \"body\": \"Example text to embed.\",\n  \"rating\": 5\n}"
+            }
+          },
+          "docs": "Schema-generated endpoint. Accepts records matching the schema; the server computes embeddings and writes them to the connected vector database."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run a registered query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/search/:query_name",
+            "params": [
+              {
+                "name": "query_name",
+                "value": "paragraph_query",
+                "type": "path",
+                "description": "Name of the registered RestQuery to execute."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{\n  \"natural_query\": \"comfortable hotel near the beach\",\n  \"limit\": 10\n}"
+            }
+          },
+          "docs": "Schema-generated endpoint. Request body parameters are derived from the registered query definition. Returns ranked results from the connected vector store."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data Loader",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger a configured data loader",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/data-loader/:name/run",
+            "params": [
+              {
+                "name": "name",
+                "value": "review",
+                "type": "path",
+                "description": "Name of the configured data loader."
+              }
+            ]
+          },
+          "docs": "Starts a configured batch data loader to backfill vectors from a file or external source."
+        },
+        {
+          "info": {
+            "name": "Get data loader status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/data-loader/:name/status",
+            "params": [
+              {
+                "name": "name",
+                "value": "review",
+                "type": "path",
+                "description": "Name of the configured data loader."
+              }
+            ]
+          },
+          "docs": "Reports the progress and state of a configured data loader."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
