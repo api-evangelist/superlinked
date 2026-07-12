@@ -135,3 +135,13 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+
+common:
+  - type: VulnerabilityDisclosure
+    url: security/superlinked-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/superlinked-domain-security.yml
+  - type: Authentication
+    url: authentication/superlinked-authentication.yml
+  - url: https://superlinked.com/blog
+    type: Blog

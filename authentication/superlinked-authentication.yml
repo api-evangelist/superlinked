@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/superlinked-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Optional API key header. The open-source Superlinked Server ships without built-in
+    auth; deployments commonly place an API key or bearer token check in front of it (gateway
+    or custom middleware). Configure to match your deployment.
+  sources:
+  - openapi/superlinked-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Optional bearer token, when the deployment fronts the server with token auth.
+  sources:
+  - openapi/superlinked-openapi.yml
