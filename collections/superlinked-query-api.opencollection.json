@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Superlinked Server Data Loader Query API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run a registered query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/search/:query_name",
+            "params": [
+              {
+                "name": "query_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the registered RestQuery to execute."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generated per RestQuery registered in the Superlinked app. The request body parameters (for example natural_query, limit, and any query-time weights or filters) are derived from the query definition. Returns ranked entries from the connected vector store, optionally with metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

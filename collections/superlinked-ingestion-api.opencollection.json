@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Superlinked Server Data Loader Ingestion API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingestion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest records for a schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/ingest/:schema",
+            "params": [
+              {
+                "name": "schema",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Superlinked schema whose ingest endpoint is being called."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generated per schema declared in the Superlinked app. Accepts one or more records matching the schema's fields; the server computes multi-modal embeddings and persists them to the configured vector database. The {schema} path segment is the schema's id (for example, the lowercased schema class name)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

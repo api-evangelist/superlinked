@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "f4639f20-a5a9-432f-9e29-79298d97152b",
+      "name": "Ingestion",
+      "description": {
+        "content": "Schema-generated endpoints that accept records and write embeddings to the connected vector database.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6fcf183a-1253-4c65-b634-cfa341d1ac09",
+          "name": "Ingest records for a schema",
+          "request": {
+            "name": "Ingest records for a schema",
+            "description": {
+              "content": "Generated per schema declared in the Superlinked app. Accepts one or more records matching the schema's fields; the server computes multi-modal embeddings and persists them to the configured vector database. The {schema} path segment is the schema's id (for example, the lowercased schema class name).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ingest",
+                ":schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schema",
+                  "description": "(Required) Identifier of the Superlinked schema whose ingest endpoint is being called."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 4713,\n  \"key_1\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edab250e-e5e0-4fff-875a-1c76f7edbd42",
+              "name": "Accepted. Records were received and embedding/persistence was scheduled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ingest",
+                    ":schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schema",
+                      "description": "(Required) Identifier of the Superlinked schema whose ingest endpoint is being called."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"Example text to embed.\",\n  \"rating\": 5\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "71664cdd-de93-4bc2-be3c-0da518a60553",
+              "name": "Request body did not match the generated schema.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ingest",
+                    ":schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schema",
+                      "description": "(Required) Identifier of the Superlinked schema whose ingest endpoint is being called."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"Example text to embed.\",\n  \"rating\": 5\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4f4eb33d-0067-4284-ad8b-3de16ba446bf",
+    "name": "Superlinked Server Data Loader Ingestion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API auto-generated by the Superlinked Server from a Superlinked app's schema, index, and query definitions. The Superlinked open-source Python framework (Apache-2.0) lets you declare Schema, Space, Index, Query, Source, and Executor objects; when run with a RestExecutor / RestApp the server exposes ingestion and query endpoints whose exact paths and request bodies are derived from those definitions. This document models the generated pattern using representative, templated path and body names ({schema}, {query_name}); the concrete endpoints on any given deployment depend on the app's own schema and registered queries. The framework repository was archived on 2026-05-29 as the team shifted to the Superlinked Inference Engine; the server REST pattern documented here reflects the framework as last published.\n\nContact Support:\n Name: Superlinked",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "item": [
+    {
+      "id": "97093b8e-4e02-4dbd-b0dd-2888a920b9e2",
+      "name": "Data Loader",
+      "description": {
+        "content": "Endpoints to trigger and monitor configured batch data loaders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7221129-da39-4dd1-b148-457278248079",
+          "name": "Trigger a configured data loader",
+          "request": {
+            "name": "Trigger a configured data loader",
+            "description": {
+              "content": "Starts a configured batch data loader to backfill vectors from a file or external source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-loader",
+                ":name",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Name of the configured data loader."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a37139d2-5c46-4e05-bba2-dbc2af6fbd64",
+              "name": "Data loader run accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-loader",
+                    ":name",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the configured data loader."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3d1e243-0c02-4111-a78f-c8f38859b603",
+          "name": "Get data loader status",
+          "request": {
+            "name": "Get data loader status",
+            "description": {
+              "content": "Reports the progress and state of a configured data loader.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-loader",
+                ":name",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Name of the configured data loader."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "adcc1023-e4f3-4067-833a-734a9cec0a6b",
+              "name": "Current data loader status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-loader",
+                    ":name",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the configured data loader."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b975316f-cd85-4ca6-912c-66d0340f0760",
+    "name": "Superlinked Server Data Loader API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API auto-generated by the Superlinked Server from a Superlinked app's schema, index, and query definitions. The Superlinked open-source Python framework (Apache-2.0) lets you declare Schema, Space, Index, Query, Source, and Executor objects; when run with a RestExecutor / RestApp the server exposes ingestion and query endpoints whose exact paths and request bodies are derived from those definitions. This document models the generated pattern using representative, templated path and body names ({schema}, {query_name}); the concrete endpoints on any given deployment depend on the app's own schema and registered queries. The framework repository was archived on 2026-05-29 as the team shifted to the Superlinked Inference Engine; the server REST pattern documented here reflects the framework as last published.\n\nContact Support:\n Name: Superlinked",
+      "type": "text/plain"
+    }
+  }
+}

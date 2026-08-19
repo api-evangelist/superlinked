@@ -1,0 +1,193 @@
+{
+  "item": [
+    {
+      "id": "71116fb0-9066-4bce-a6ea-8ed16a3bf7b2",
+      "name": "Query",
+      "description": {
+        "content": "Schema-generated endpoints that run registered queries against the connected vector database.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34984ce5-2f52-4aa5-be33-754006d629d3",
+          "name": "Run a registered query",
+          "request": {
+            "name": "Run a registered query",
+            "description": {
+              "content": "Generated per RestQuery registered in the Superlinked app. The request body parameters (for example natural_query, limit, and any query-time weights or filters) are derived from the query definition. Returns ranked entries from the connected vector store, optionally with metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "search",
+                ":query_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "query_name",
+                  "description": "(Required) Name of the registered RestQuery to execute."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"natural_query\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"key_0\": true,\n  \"key_1\": 4211,\n  \"key_2\": 9329.13315775436\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e9e46dc-d2a1-42d6-abd5-398ac44992a5",
+              "name": "Ranked query results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "search",
+                    ":query_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query_name",
+                      "description": "(Required) Name of the registered RestQuery to execute."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"natural_query\": \"comfortable hotel near the beach\",\n  \"limit\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"key_0\": 4902.510113446095\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  ],\n  \"key_0\": \"string\",\n  \"key_1\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17e9d663-c45f-487c-b373-5da41ca21502",
+              "name": "Request body did not match the generated query parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "search",
+                    ":query_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query_name",
+                      "description": "(Required) Name of the registered RestQuery to execute."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"natural_query\": \"comfortable hotel near the beach\",\n  \"limit\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9b210caf-0e5a-48de-a278-6087cdcf33c8",
+    "name": "Superlinked Server Data Loader Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API auto-generated by the Superlinked Server from a Superlinked app's schema, index, and query definitions. The Superlinked open-source Python framework (Apache-2.0) lets you declare Schema, Space, Index, Query, Source, and Executor objects; when run with a RestExecutor / RestApp the server exposes ingestion and query endpoints whose exact paths and request bodies are derived from those definitions. This document models the generated pattern using representative, templated path and body names ({schema}, {query_name}); the concrete endpoints on any given deployment depend on the app's own schema and registered queries. The framework repository was archived on 2026-05-29 as the team shifted to the Superlinked Inference Engine; the server REST pattern documented here reflects the framework as last published.\n\nContact Support:\n Name: Superlinked",
+      "type": "text/plain"
+    }
+  }
+}
