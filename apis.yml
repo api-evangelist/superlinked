@@ -8,6 +8,17 @@ description: Superlinked is an open-source Python framework for building vector-
   Server, the framework auto-generates a REST API - ingestion and query endpoints
   derived directly from your schema, index, and query definitions - and connects to
   external vector databases. A managed Superlinked Cloud is available in early access.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
