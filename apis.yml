@@ -2,12 +2,11 @@ aid: superlinked
 url: https://raw.githubusercontent.com/api-evangelist/superlinked/refs/heads/main/apis.yml
 name: Superlinked
 kind: company
-description: Superlinked is an open-source Python framework for building vector-compute
-  pipelines that encode structured and unstructured data into multi-modal embeddings
-  for retrieval, recommendations, RAG, and analytics. When deployed via the Superlinked
-  Server, the framework auto-generates a REST API - ingestion and query endpoints
-  derived directly from your schema, index, and query definitions - and connects to
-  external vector databases. A managed Superlinked Cloud is available in early access.
+description: Superlinked is an open-source Python framework for building vector-compute pipelines that
+  encode structured and unstructured data into multi-modal embeddings for retrieval, recommendations,
+  RAG, and analytics. When deployed via the Superlinked Server, the framework auto-generates a REST API
+  - ingestion and query endpoints derived directly from your schema, index, and query definitions - and
+  connects to external vector databases. A managed Superlinked Cloud is available in early access.
 deliveryModel:
   model: unknown
   open_source: false
@@ -42,7 +41,7 @@ tags:
 - Recommendations
 - RAG
 created: '2026-06-20'
-modified: '2026-06-20'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: superlinked:superlinked-framework
@@ -59,11 +58,10 @@ apis:
     type: Documentation
   - url: https://github.com/superlinked/superlinked
     type: GitHub
-  description: >-
-    The open-source Apache-2.0 Python framework (pip install superlinked) used to declare Schema, Space,
-    Index, Query, Source, and Executor objects. The same definitions run in-memory for prototyping or
-    power the Superlinked Server, which generates the REST API. This is a library/SDK surface, not an
-    HTTP API.
+  description: The open-source Apache-2.0 Python framework (pip install superlinked) used to declare Schema,
+    Space, Index, Query, Source, and Executor objects. The same definitions run in-memory for prototyping
+    or power the Superlinked Server, which generates the REST API. This is a library/SDK surface, not
+    an HTTP API.
 - aid: superlinked:superlinked-cloud
   name: Superlinked Cloud
   tags:
@@ -76,10 +74,9 @@ apis:
   properties:
   - url: https://www.superlinked.com
     type: Documentation
-  description: >-
-    Managed, production-scale hosting of Superlinked-powered apps, available in early access via a sales-led
-    demo. Runs the same schema-generated REST surface as the self-hosted Superlinked Server without the
-    user operating the infrastructure.
+  description: Managed, production-scale hosting of Superlinked-powered apps, available in early access
+    via a sales-led demo. Runs the same schema-generated REST surface as the self-hosted Superlinked Server
+    without the user operating the infrastructure.
 - aid: superlinked:superlinked-data-loader-api
   name: Superlinked Data Loader API
   description: Endpoints to trigger and monitor configured batch data loaders.
@@ -98,8 +95,8 @@ apis:
     url: https://github.com/superlinked/superlinked
 - aid: superlinked:superlinked-ingestion-api
   name: Superlinked Ingestion API
-  description: >-
-    Schema-generated endpoints that accept records and write embeddings to the connected vector database.
+  description: Schema-generated endpoints that accept records and write embeddings to the connected vector
+    database.
   humanURL: https://github.com/superlinked/superlinked
   baseURL: http://localhost:8080/api/v1
   tags:
@@ -115,8 +112,7 @@ apis:
     url: https://github.com/superlinked/superlinked
 - aid: superlinked:superlinked-query-api
   name: Superlinked Query API
-  description: >-
-    Schema-generated endpoints that run registered queries against the connected vector database.
+  description: Schema-generated endpoints that run registered queries against the connected vector database.
   humanURL: https://github.com/superlinked/superlinked
   baseURL: http://localhost:8080/api/v1
   tags:
@@ -131,32 +127,18 @@ apis:
   - type: GitHub
     url: https://github.com/superlinked/superlinked
 common:
-- type: GitHubOrganization
-  url: https://github.com/superlinked
-- type: LinkedIn
-  url: https://www.linkedin.com/company/superlinked
 - type: Website
-  url: https://www.superlinked.com
-- type: Documentation
-  url: https://github.com/superlinked/superlinked
-- type: Plans
-  url: plans/superlinked-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/superlinked-rate-limits.yml
-- type: FinOps
-  url: finops/superlinked-finops.yml
+  url: https://superlinked.com
+- type: AgenticAccess
+  url: agentic-access/superlinked-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/superlinked-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/superlinked-domain-security.yml
+- type: Authentication
+  url: authentication/superlinked-authentication.yml
+- url: https://superlinked.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-
-common:
-  - type: AgenticAccess
-    url: agentic-access/superlinked-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/superlinked-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/superlinked-domain-security.yml
-  - type: Authentication
-    url: authentication/superlinked-authentication.yml
-  - url: https://superlinked.com/blog
-    type: Blog
