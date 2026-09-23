@@ -1,0 +1,36 @@
+# Front Door AI Index — superlinked — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: superlinked
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: superlinked.com
+  final_host: superlinked.com
+  ownership: own
+  owner: superlinked
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 41
+  host_score: 41
+  density: 33.97
+  words: 1207
+  tiers:
+    agentic: 29
+    core: 6
+    model: 6
+  ambiguous: 26
+  top_terms:
+    agent: 24
+    inference: 15
+    embedding: 10
+    LLMs: 6
+    OpenAI: 4
+    RAG: 2
+    Llama: 1
+    Mistral: 1
+    fine-tune: 1
+    intelligence: 1
+    prompts: 1
+    smart: 1
