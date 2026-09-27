@@ -9,14 +9,15 @@ description: Superlinked is an open-source Python framework for building vector-
   connects to external vector databases. A managed Superlinked Cloud is available in early access.
 deliveryModel:
   model: unknown
-  open_source: false
+  open_source: unknown
   commercial: false
   callable_host: false
   label: Delivery model not determined — needs a product licence on record
   confidence: low
   source:
   - openapi
-  generated: '2026-08-28'
+  - repository-unlicensed
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -70,7 +71,6 @@ apis:
   - Vectors
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.superlinked.com
-  baseURL: https://www.superlinked.com
   properties:
   - url: https://www.superlinked.com
     type: Documentation
