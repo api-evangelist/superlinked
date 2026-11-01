@@ -1,4 +1,4 @@
-# Superlinked (superlinked)
+# Superlinked
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,139 +66,121 @@
 
 Superlinked is an open-source Python framework for building vector-compute pipelines that encode structured and unstructured data into multi-modal embeddings for retrieval, recommendations, RAG, and analytics. When deployed via the Superlinked Server, the framework auto-generates a REST API - ingestion and query endpoints derived directly from your schema, index, and query definitions - and connects to external vector databases. A managed Superlinked Cloud is available in early access.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/superlinked/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/superlinked/refs/heads/main/apis.yml)
+**Areas:** Vectors · Embeddings · Vector Search · Retrieval · Recommendations · RAG
 
-## Tags
+## Superlinked on APIs.io
 
-- Vectors
-- Embeddings
-- Vector Search
-- Retrieval
-- Recommendations
-- RAG
+Everything profiled for Superlinked is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/superlinked/](https://apis.io/providers/superlinked/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-06-20
-- **Modified:** 2026-06-20
+- [Superlinked Framework (Python)](https://apis.io/apis/superlinked/superlinked-framework/) — The open-source Apache-2.0 Python framework (pip install superlinked) used to declare Schema, Space, Index, Query, Source, and Executor objects. The same…
+- [Superlinked Cloud](https://apis.io/apis/superlinked/superlinked-cloud/) — Managed, production-scale hosting of Superlinked-powered apps, available in early access via a sales-led demo. Runs the same schema-generated REST surface…
+- [Superlinked Data Loader API](https://apis.io/apis/superlinked/superlinked-data-loader-api/) — Endpoints to trigger and monitor configured batch data loaders.
+- [Superlinked Ingestion API](https://apis.io/apis/superlinked/superlinked-ingestion-api/) — Schema-generated endpoints that accept records and write embeddings to the connected vector database.
+- [Superlinked Query API](https://apis.io/apis/superlinked/superlinked-query-api/) — Schema-generated endpoints that run registered queries against the connected vector database.
 
-## APIs
+### Published properties
 
-### Superlinked Ingestion API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Schema-generated REST ingestion endpoint exposed by the Superlinked Server. Each schema defined in your app produces a POST /api/v1/ingest/{schema} endpoint that accepts records, computes multi-modal embeddings, and writes vectors to the configured vector database. Endpoints and request bodies are generated from your Python schema definitions, not hand-authored.
+#### Agentic access (1)
 
-- **Human URL:** [https://github.com/superlinked/superlinked](https://github.com/superlinked/superlinked)
-- **Base URL:** `http://localhost:8080/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Superlinked Agentic Access](https://apis.io/agentic-access/superlinked/superlinked-agentic-access/)
 
-- Ingestion
-- Vectors
-- Schema
+#### Collections (4)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://github.com/superlinked/superlinked)
-- [API Reference](https://github.com/superlinked/superlinked)
-- [OpenAPI](openapi/superlinked-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub](https://github.com/superlinked/superlinked)
-- [Postman Collection](collections/superlinked.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/superlinked.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Superlinked Server API](https://apis.io/collections/superlinked/open-superlinked/)
+- [Superlinked Server Data Loader API](https://apis.io/collections/superlinked/open-superlinked-data-loader-api/)
+- [Superlinked Server Data Loader Ingestion API](https://apis.io/collections/superlinked/open-superlinked-ingestion-api/)
+- [Superlinked Server Data Loader Query API](https://apis.io/collections/superlinked/open-superlinked-query-api/)
 
-### Superlinked Query API
+#### Security (3)
 
-Schema-generated REST query endpoint exposed by the Superlinked Server. Each RestQuery you register produces a POST /api/v1/search/{query_name} endpoint whose request body parameters (natural_query, weights, filters, limit) are derived from the query definition. Returns ranked results from the connected vector store.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://github.com/superlinked/superlinked](https://github.com/superlinked/superlinked)
-- **Base URL:** `http://localhost:8080/api/v1`
+- [Superlinked Authentication](https://apis.io/security/superlinked/superlinked-authentication/)
+- [Superlinked Domain Security](https://apis.io/security/superlinked/superlinked-domain-security/)
+- [Superlinked Vulnerability Disclosure](https://apis.io/security/superlinked/superlinked-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Query
-- Search
-- Retrieval
+Published plans, tiers and prices.
 
-#### Properties
+- [Superlinked Plans Pricing](https://apis.io/plans/superlinked/superlinked-plans-pricing/)
 
-- [Documentation](https://github.com/superlinked/superlinked)
-- [API Reference](https://github.com/superlinked/superlinked)
-- [OpenAPI](openapi/superlinked-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub](https://github.com/superlinked/superlinked)
-- [Postman Collection](collections/superlinked.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/superlinked.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Superlinked Data Loader API
+Published request limits.
 
-Server endpoints for triggering and monitoring configured batch data loaders - POST /data-loader/{name}/run starts a load and GET /data-loader/{name}/status reports progress - used to backfill vectors from files or external sources.
+- [Superlinked Rate Limits](https://apis.io/rate-limits/superlinked/superlinked-rate-limits/)
 
-- **Human URL:** [https://github.com/superlinked/superlinked](https://github.com/superlinked/superlinked)
-- **Base URL:** `http://localhost:8080`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Data Loader
-- Batch
-- Ingestion
+- [Superlinked Finops](https://apis.io/finops/superlinked/superlinked-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://github.com/superlinked/superlinked)
-- [OpenAPI](openapi/superlinked-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub](https://github.com/superlinked/superlinked)
-- [Postman Collection](collections/superlinked.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/superlinked.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Superlinked Framework (Python)
+- [Website](https://superlinked.com)
+- [Blog](https://superlinked.com/blog)
 
-The open-source Apache-2.0 Python framework (pip install superlinked) used to declare Schema, Space, Index, Query, Source, and Executor objects. The same definitions run in-memory for prototyping or power the Superlinked Server, which generates the REST API. This is a library/SDK surface, not an HTTP API.
+## API Evangelist rating
 
-- **Human URL:** [https://github.com/superlinked/superlinked](https://github.com/superlinked/superlinked)
-- **Base URL:** `https://pypi.org/project/superlinked`
+**Kin Score 24.9** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-#### Tags
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 42.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 5.3 |
 
-- Framework
-- Python
-- Embeddings
+**Agent readiness 17.9** — agent-aware
 
-#### Properties
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-- [Documentation](https://github.com/superlinked/superlinked)
-- [GitHub](https://github.com/superlinked/superlinked)
-- [Postman Collection](collections/superlinked.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/superlinked.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+**Regulatory alignment 16.4** — Horizontal (data, software, accessibility, platform)
 
-### Superlinked Cloud
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/superlinked/](https://apis.io/providers/superlinked/).
 
-Managed, production-scale hosting of Superlinked-powered apps, available in early access via a sales-led demo. Runs the same schema-generated REST surface as the self-hosted Superlinked Server without the user operating the infrastructure.
+## How this profile is made
 
-- **Human URL:** [https://www.superlinked.com](https://www.superlinked.com)
-- **Base URL:** `https://www.superlinked.com`
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-#### Tags
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Superlinked: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-- Cloud
-- Managed
-- Vectors
+## Open an issue
 
-#### Properties
-
-- [Documentation](https://www.superlinked.com)
-- [Postman Collection](collections/superlinked.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/superlinked.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/superlinked)
-- [LinkedIn](https://www.linkedin.com/company/superlinked)
-- [Website](https://www.superlinked.com)
-- [Documentation](https://github.com/superlinked/superlinked)
-- [Plans](plans/superlinked-plans-pricing.yml)
-- [Rate Limits](rate-limits/superlinked-rate-limits.yml)
-- [Fin Ops](finops/superlinked-finops.yml)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/superlinked/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
